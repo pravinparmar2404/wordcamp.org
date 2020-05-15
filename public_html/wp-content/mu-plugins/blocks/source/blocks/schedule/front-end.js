@@ -2,8 +2,7 @@
  * Internal dependencies
  */
 import { getDerivedSessions } from './data';
-import { ScheduleGridContext } from './edit';
-import { ScheduleGrid } from './schedule-grid';
+import { ScheduleGrid, ScheduleGridContext } from './schedule-grid';
 import renderFrontend from '../../utils/render-frontend';
 import './front-end.scss';
 

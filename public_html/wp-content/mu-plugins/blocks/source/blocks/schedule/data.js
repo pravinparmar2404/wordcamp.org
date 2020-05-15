@@ -9,9 +9,7 @@ import { __experimentalGetSettings, dateI18n, setSettings } from '@wordpress/dat
  */
 import { WC_BLOCKS_STORE } from '../../data';
 
-/*
- * Work around Gutenberg bug: https://github.com/WordPress/gutenberg/issues/22193
- */
+// Work around Gutenberg bug: https://github.com/WordPress/gutenberg/issues/22193
 import 'moment-timezone/moment-timezone-utils';
 setSettings( __experimentalGetSettings() );
 

@@ -13,7 +13,7 @@ import { useContext } from '@wordpress/element';
  * Internal dependencies
  */
 import { Session } from './session';
-import { ScheduleGridContext } from './edit';
+import { ScheduleGridContext } from './schedule-grid';
 
 /**
  * Render time headings and session groups.

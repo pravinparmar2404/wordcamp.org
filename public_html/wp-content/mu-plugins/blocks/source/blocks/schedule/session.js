@@ -14,7 +14,7 @@ import { createInterpolateElement, useContext } from '@wordpress/element';
 /**
  * Import dependencies
  */
-import { ScheduleGridContext } from './edit';
+import { ScheduleGridContext } from './schedule-grid';
 
 /**
  * Render an individual session.

@@ -1,18 +1,11 @@
 /**
- * WordPress dependencies
- */
-import { createContext } from '@wordpress/element';
-
-/**
  * Internal dependencies
  */
 import { useScheduleData } from './data';
-import { ScheduleGrid } from './schedule-grid';
+import { ScheduleGrid, ScheduleGridContext } from './schedule-grid';
 import InspectorControls from './inspector-controls';
 import { NoContent } from '../../components/';
 import './edit.scss';
-
-export const ScheduleGridContext = createContext();
 
 /**
  * Top-level component for the editing UI for the block.

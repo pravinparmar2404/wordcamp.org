@@ -3,7 +3,7 @@
  */
 import { dateI18n } from '@wordpress/date';
 import { __, _x } from '@wordpress/i18n';
-import { useContext } from '@wordpress/element';
+import { createContext, useContext } from '@wordpress/element';
 
 /**
  * Internal dependencies
@@ -11,7 +11,9 @@ import { useContext } from '@wordpress/element';
 import { Sessions } from './sessions';
 import { NoContent } from '../../components/';
 import { DATE_SLUG_FORMAT, implicitTrack, sortBySlug } from './data';
-import { ScheduleGridContext } from './edit';
+
+export const ScheduleGridContext = createContext();
+
 
 /**
  * Render the schedule.
