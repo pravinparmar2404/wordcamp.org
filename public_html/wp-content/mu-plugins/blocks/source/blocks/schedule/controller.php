@@ -38,23 +38,6 @@ function init() {
 
 		'editor_script' => 'wordcamp-blocks',
 		'editor_style'  => 'wordcamp-blocks',
-
-		/*
-		 * @todo This gets loaded on all front-end pages unnecessarily. See:
-		 *
-		 * https://github.com/WordPress/gutenberg/issues/15256
-		 * https://github.com/WordPress/gutenberg/issues/21838
-		 *
-		 * There isn't a simple workaround, though, since the block needs to be registered before the global $post
-		 * is available. We can probably just wait until that bug is fixed upstream. An alternative option might be:
-		 *
-		 * https://wordpress.stackexchange.com/questions/328536/
-		 *
-		 * It also gets loaded when editing the page. will that mess up style cascades by applying
-		 * `front-end.scss` (which only contains some styles) on top of `blocks.scss` ?
-		 */
-		'script' => 'wordcamp-schedule-front-end',
-		'style'  => 'wordcamp-schedule-front-end',
 	);
 
 	register_block_type( 'wordcamp/schedule', $block_arguments );
@@ -316,6 +299,23 @@ function get_settings() {
 function render( $attributes ) {
 	$defaults   = wp_list_pluck( get_attributes_schema(), 'default' );
 	$attributes = wp_parse_args( $attributes, $defaults );
+
+	/*
+	 * Only enqueue these on pages where the block is present.
+	 *
+	 * Workaround for https://github.com/WordPress/gutenberg/issues/5445.
+	 * @see https://github.com/WordPress/gutenberg/issues/21838
+	 *
+	 * This checks `is_admin()` because `render_callback()` is unexpectedly executed in the editor, maybe because
+	 * of https://github.com/WordPress/gutenberg/issues/18394.
+	 *
+	 * @todo remove this when #5445 is resolved, but make sure that doesn't cause it to start being enqueued in
+	 * the editor.
+	 */
+	if ( ! is_admin() ) {
+		wp_enqueue_script( 'wordcamp-schedule-front-end' );
+		wp_enqueue_style( 'wordcamp-schedule-front-end' );
+	}
 
 	ob_start();
 	require __DIR__ . '/view.php';

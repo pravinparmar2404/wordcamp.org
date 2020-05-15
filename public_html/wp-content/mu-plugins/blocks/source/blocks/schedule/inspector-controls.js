@@ -136,6 +136,10 @@ function ChooseSpecificDays( { chooseSpecificDays, displayedDays, chosenDays, da
  * All of the tracks that exist are shown, instead of just the ones assigned to the current sessions. That's more
  * consistent and obvious for users, so they don't have to guess why a track they created isn't showing up.
  *
+ * @todo There's a couple issues related to hierarchical taxonomies:
+ * https://github.com/WordPress/gutenberg/issues/13816#issuecomment-532885577
+ * https://github.com/WordPress/gutenberg/issues/17476
+ *
  * @param {Array}    props
  * @param {boolean}  props.chooseSpecificTracks
  * @param {Object}   props.allTracks
