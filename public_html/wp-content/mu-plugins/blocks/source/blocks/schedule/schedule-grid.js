@@ -9,7 +9,7 @@ import { createContext, useContext } from '@wordpress/element';
  * Internal dependencies
  */
 import { Sessions } from './sessions';
-import { NoContent } from '../../components/';
+import NoContent from '../../components/post-list/no-content';
 import { DATE_SLUG_FORMAT, implicitTrack, sortBySlug } from './data';
 
 export const ScheduleGridContext = createContext();
