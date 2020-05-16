@@ -4,7 +4,7 @@
 import { useScheduleData } from './data';
 import { ScheduleGrid, ScheduleGridContext } from './schedule-grid';
 import InspectorControls from './inspector-controls';
-import { NoContent } from '../../components/';
+import NoContent from '../../components/post-list/no-content';
 import './edit.scss';
 
 /**
